@@ -1,8 +1,8 @@
-import { generateDatesFromYearBeginning } from "../utils/generate-range-between-dates";
+import { generateRangeDatesFromYearStart } from "../utils/generate-range-between-dates";
 import { HabitDay } from "./HabitDay"
 
 const weekDays = ["D","S","T","Q","Q","S","S"];
-const summaryDates = generateDatesFromYearBeginning();
+const summaryDates = generateRangeDatesFromYearStart();
 const minimumSummaryDatesSize = 18 * 7; // 18 weeks
 const amountOfDaysToFill = minimumSummaryDatesSize - summaryDates.length;
 
@@ -23,9 +23,13 @@ export function SummaryTable() {
       </div>
       <div className="grid grid-rows-7 grid-flow-col gap-3">
         {summaryDates.map((date) => (
-          <HabitDay key={date.toString()} />
+          <HabitDay 
+            key={date.toString()} 
+            amount={5}
+            completed={Math.round(Math.random() * 5)}
+          />
         ))}
-
+        
         {amountOfDaysToFill > 0 && Array.from({length: amountOfDaysToFill}).map((_, i) => {
           return (
             <div 

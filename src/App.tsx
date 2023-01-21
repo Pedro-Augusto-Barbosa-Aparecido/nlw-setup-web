@@ -1,6 +1,3 @@
-import { Plus } from "phosphor-react";
-
-import logo from "./assets/logo.svg";
 import { Header } from "./components/Header";
 
 export function App() {
